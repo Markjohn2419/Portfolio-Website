@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Website</title>
+
+  <style>
+    /* Hide the actual checkbox */
+    #dark-toggle {
+      display: none;
+    }
+
+    /* Dark mode toggle button */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      font-size: 15px;
+      cursor: pointer;
+      z-index: 3000;
+      background: white;
+      border-radius: 50%;
+      padding: 5px 10px;
+      user-select: none;
+    }
+
+    /* Default light mode */
+    .wrapper {
+      background: url('bg.jfif') no-repeat center center fixed;
+      background-size: cover;
+      color: #000;
+      min-height: 100vh;
+    }
+
+    /* Dark mode */
+    #dark-toggle:checked ~ .wrapper {
+      background: #111 !important;
+      color: #eee;
+    }
+
+    #dark-toggle:checked ~ .wrapper section {
+      background: rgba(255, 255, 255, 0.05);
+      color: #eee;
+    }
+
+    /* Header + Footer dark mode */
+    #dark-toggle:checked ~ .wrapper header,
+    #dark-toggle:checked ~ .wrapper footer {
+      background: #000;
+      color: #fff;
+    }
+
+    #dark-toggle:checked ~ .wrapper nav ul li a {
+      color: #fff;
+    }
+
+    /* Switch icons */
+    .sun {
+      display: none;
+    }
+
+    #dark-toggle:checked + label .moon {
+      display: none;
+    }
+
+    #dark-toggle:checked + label .sun {
+      display: inline;
+    }
+
+    /* Section divider line */
+    section {
+      border-bottom: 5px solid #2f2c4b;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #3b25ff;
+      padding: 20px 0;
+      z-index: 2000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 80px;
+    }
+
+    nav ul li a {
+      color: rgb(20, 20, 20);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: rgb(148, 135, 19);
+    }
+
+    section {
+      height: 100vh;
+      padding-top: 60px;
+      box-sizing: border-box;
+    }
+
+    /* Home layout */
+    .home-container {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      height: 100%;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .profile-pic {
+      width: 200px;
+      height: 275px;
+      border-radius: 45%;
+      object-fit: cover;
+      border: 4px solid #c70c0c;
+    }
+
+    .home-text {
+      max-width: 600px;
+      text-align: left;
+    }
+
+    /* About & Contacts */
+    .centered-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 5px 0;
+    }
+
+    .about-pic {
+      width: 200px;
+      height: 275px;
+      border-radius: 45%;
+      object-fit: cover;
+      border: 4px solid #c70c0c;
+    }
+
+     .double-space {
+     line-height: 2; /* double spacing */
+    }
+
+
+    footer {
+      background: #3b25ff;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    #HOME, #ABOUT, #CONTACTS {
+      background: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <!-- Checkbox MUST come first -->
+  <input type="checkbox" id="dark-toggle">
+
+  <!-- Label with switch icons -->
+  <label for="dark-toggle" class="dark-mode-toggle">
+    <span class="moon">🌙</span>
+    <span class="sun">☀️</span>
+  </label>
+
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#HOME">HOME</a></li>
+          <li><a href="#ABOUT">ABOUT</a></li>
+          <li><a href="#CONTACTS">CONTACTS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Home -->
+    <section id="HOME">
+      <div class="home-container">
+        <img src="mark.jfif" alt="Profile Picture" class="profile-pic">
+        <div class="home-text">
+          <h6>Welcome to My Portfolio</h6>
+          <h1><b><u>Hi, I'm Mark - a 3rd year student at Caraga State University.</u></b></h1>
+          <p>I am currently taking bachelor in science in computer science, and dreaming that someday I become a professional in cyber security.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+<section id="ABOUT" class="centered-section">
+  <div class="about-container">
+    <img src="john.jfif" alt="About Me Picture" class="about-pic">
+    <div class="about-text">
+      <h2>About Me</h2>
+
+      <p class="double-space">
+        Hi, I’m <b>MarkJohn O. Bongcayao</b>, a 21-year-old <u>Computer Science student</u> at 
+        <u>Caraga State University.</u> I am passionate about exploring ethical hacking and 
+        strengthening my skills in the field of cybersecurity. My biggest strengths are continuous 
+        learning and perseverance, which drive me to push boundaries and adapt to challenges. 
+        Beyond academics, I enjoy discovering unexplainable things,<br> which fuels my curiosity and 
+        creativity in problem-solving. My ultimate goal is to become a professional cybersecurity 
+        expert, dedicated to creating a safer digital world.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Contacts -->
+    <section id="CONTACTS" class="centered-section">
+      <h2>Contact Me</h2><br>
+
+      <div class="contact-item">
+        <img src="ig.jfif" alt="Instagram" width="20">
+        <span>Instagram: @Its_markj.jhn</span>
+      </div><br>
+
+      <div class="contact-item">
+        <img src="fb.jfif" alt="Facebook" width="20">
+        <span>Facebook: MarkJohn O. Bongcayao</span>
+      </div><br>
+
+      <div class="contact-item">
+        <img src="call.jfif" alt="Phone" width="20">
+        <span>Contact num: +639091706816</span>
+      </div><br>
+
+      <div class="contact-item">
+        <img src="Carsu.jfif" alt="Email" width="20">
+        <span>Email: markjohn.bongcayao@carsu.edu.ph</span>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 MarkJohn O. Bongcayao. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
