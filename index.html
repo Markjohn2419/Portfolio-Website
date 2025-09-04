@@ -106,9 +106,15 @@
     }
 
     section {
+      display: none;
       height: 100vh;
       padding-top: 60px;
       box-sizing: border-box;
+    }
+
+    /* Show only the section that is targeted by the link */
+    section:target {
+      display: block;
     }
 
     /* Home layout */
@@ -178,6 +184,12 @@
     #HOME, #ABOUT, #CONTACTS {
       background: rgba(255, 255, 255, 0.7);
     }
+
+    /* Default to HOME */
+    #HOME {
+      display: block;
+    }
+
   </style>
 </head>
 <body>
@@ -257,7 +269,7 @@
       <div class="contact-item">
         <img src="Carsu.jfif" alt="Email" width="20">
         <span>Email: markjohn.bongcayao@carsu.edu.ph</span>
-      </div>
+      </div><br>
     </section>
 
     <footer>
