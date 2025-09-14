@@ -4,14 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Website</title>
-
   <style>
     /* Hide the actual checkbox */
-    #dark-toggle {
-      display: none;
-    }
+    #dark-toggle { display: none; }
 
-    /* Dark mode toggle button */
+    /* Dark mode toggle */
     .dark-mode-toggle {
       position: fixed;
       top: 15px;
@@ -24,91 +21,60 @@
       padding: 5px 10px;
       user-select: none;
     }
+    .sun { display: none; }
+    #dark-toggle:checked + label .moon { display: none; }
+    #dark-toggle:checked + label .sun { display: inline; }
 
-    /* Default light mode */
+    /* Light mode default */
     .wrapper {
       background: url('bg.jfif') no-repeat center center fixed;
       background-size: cover;
       color: #000;
       min-height: 100vh;
     }
-
-    /* Dark mode */
     #dark-toggle:checked ~ .wrapper {
       background: #111 !important;
       color: #eee;
     }
-
     #dark-toggle:checked ~ .wrapper section {
       background: rgba(255, 255, 255, 0.05);
       color: #eee;
     }
-
-    /* Header + Footer dark mode */
     #dark-toggle:checked ~ .wrapper header,
     #dark-toggle:checked ~ .wrapper footer {
       background: #000;
       color: #fff;
     }
+    #dark-toggle:checked ~ .wrapper nav ul li a { color: #fff; }
 
-    #dark-toggle:checked ~ .wrapper nav ul li a {
-      color: #fff;
-    }
-
-    /* Switch icons */
-    .sun {
-      display: none;
-    }
-
-    #dark-toggle:checked + label .moon {
-      display: none;
-    }
-
-    #dark-toggle:checked + label .sun {
-      display: inline;
-    }
-
-    /* Section divider line */
-    section {
-      border-bottom: 5px solid #2f2c4b;
-    }
-
+    /* Navigation */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       background: #3b25ff;
       padding: 20px 0;
       z-index: 2000;
     }
-
     nav ul {
       list-style: none;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       display: flex;
       justify-content: center;
     }
-
-    nav ul li {
-      margin: 0 80px;
-    }
-
+    nav ul li { margin: 0 80px; }
     nav ul li a {
-      color: rgb(20, 20, 20);
+      color: rgb(20,20,20);
       text-decoration: underline;
       font-weight: bold;
     }
-
-    nav ul li a:hover {
-      color: rgb(148, 135, 19);
-    }
+    nav ul li a:hover { color: rgb(148, 135, 19); }
 
     section {
       height: 100vh;
       padding-top: 60px;
       box-sizing: border-box;
+      border-bottom: 5px solid #2f2c4b;
     }
 
     /* Home layout */
@@ -120,21 +86,21 @@
       gap: 40px;
       padding: 20px;
     }
-
-    .profile-pic {
+    .profile-pic, .about-pic {
       width: 300px;
       height: 275px;
       border-radius: 45%;
       object-fit: cover;
       border: 4px solid #c22d2d;
     }
-
-    .home-text {
-      max-width: 600px;
-      text-align: left;
+    .about-pic {
+      width: 200px;
+      height: 275px;
+      border: 4px solid #c70c0c;
     }
+    .home-text { max-width: 600px; text-align: left; }
 
-    /* About & Contacts */
+    /* Centered sections */
     .centered-section {
       display: flex;
       flex-direction: column;
@@ -143,27 +109,15 @@
       height: 100%;
       text-align: center;
     }
-
     .contact-item {
       display: flex;
       align-items: center;
       gap: 10px;
       margin: 5px 0;
     }
+    .double-space { line-height: 2; }
 
-    .about-pic {
-      width: 200px;
-      height: 275px;
-      border-radius: 45%;
-      object-fit: cover;
-      border: 4px solid #c70c0c;
-    }
-
-     .double-space {
-     line-height: 2; /* double spacing */
-    }
-
-
+    /* Footer */
     footer {
       background: #3b25ff;
       color: white;
@@ -175,23 +129,33 @@
       font-size: 14px;
     }
 
-    #HOME, #ABOUT, #CONTACTS {
-      background: rgba(255, 255, 255, 0.7);
+    #HOME, #ABOUT, #CONTACTS { background: rgba(255, 255, 255, 0.7); }
+
+    .edit-btn {
+      margin-top: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background: #3b25ff;
+      color: white;
+      font-weight: bold;
+    }
+    .file-input {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <!-- Checkbox MUST come first -->
+  <!-- Dark mode switch -->
   <input type="checkbox" id="dark-toggle">
-
-  <!-- Label with switch icons -->
   <label for="dark-toggle" class="dark-mode-toggle">
     <span class="moon">🌙</span>
     <span class="sun">☀️</span>
   </label>
 
-  <!-- Wrapper -->
   <div class="wrapper">
+    <!-- Header -->
     <header>
       <nav>
         <ul>
@@ -205,64 +169,114 @@
     <!-- Home -->
     <section id="HOME">
       <div class="home-container">
-        <img src="mark.jfif" alt="Profile Picture" class="profile-pic">
+        <div>
+          <img id="home-img" src="mark.jfif" alt="Profile Picture" class="profile-pic">
+          <input type="file" id="home-img-input" class="file-input" accept="image/*">
+          <button class="edit-btn" data-img="home-img" data-input="home-img-input">🖼️ Change Image</button>
+        </div>
         <div class="home-text">
-          <h6>Welcome to My Portfolio</h6>
-          <h1><b><u>Hi, I'm Mark - a 3rd year student at Caraga State University.</u></b></h1>
-          <p>I am currently taking bachelor in science in computer science, and dreaming that someday I become a professional in cyber security.</p>
+          <h6 id="home-title">Welcome to My Portfolio</h6>
+          <h1 id="home-heading"><b><u>Hi, I'm Mark - a 3rd year student at Caraga State University.</u></b></h1>
+          <p id="home-desc">I am currently taking bachelor in science in computer science, and dreaming that someday I become a professional in cyber security.</p>
+          <button class="edit-btn" data-target="home-desc">✏️ Edit Text</button>
         </div>
       </div>
     </section>
 
     <!-- About -->
-<section id="ABOUT" class="centered-section">
-  <div class="about-container">
-    <img src="john.jfif" alt="About Me Picture" class="about-pic">
-    <div class="about-text">
-      <h2>About Me</h2>
-
-      <p class="double-space">
-        Hi, I’m <b>MarkJohn O. Bongcayao</b>, a 21-year-old <u>Computer Science student</u> at 
-        <u>Caraga State University.</u> I am passionate about exploring ethical hacking and 
-        strengthening my skills in the field of cybersecurity. My biggest strengths are continuous 
-        learning and perseverance, which drive me to push boundaries and adapt to challenges. 
-        Beyond academics, I enjoy discovering unexplainable things,<br> which fuels my curiosity and 
-        creativity in problem-solving. My ultimate goal is to become a professional cybersecurity 
-        expert, dedicated to creating a safer digital world.
-      </p>
-    </div>
-  </div>
-</section>
-
+    <section id="ABOUT" class="centered-section">
+      <div class="about-container">
+        <div>
+          <img id="about-img" src="john.jfif" alt="About Me Picture" class="about-pic">
+          <input type="file" id="about-img-input" class="file-input" accept="image/*">
+          <button class="edit-btn" data-img="about-img" data-input="about-img-input">🖼️ Change Image</button>
+        </div>
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p id="about-content" class="double-space">
+            Hi, I’m <b>MarkJohn O. Bongcayao</b>, a 21-year-old <u>Computer Science student</u> at 
+            <u>Caraga State University.</u> I am passionate about exploring ethical hacking and 
+            strengthening my skills in the field of cybersecurity. My biggest strengths are continuous 
+            learning and perseverance, which drive me to push boundaries and adapt to challenges. 
+            Beyond academics, I enjoy discovering unexplainable things,<br> which fuels my curiosity and 
+            creativity in problem-solving. My ultimate goal is to become a professional cybersecurity 
+            expert, dedicated to creating a safer digital world.
+          </p>
+          <button class="edit-btn" data-target="about-content">✏️ Edit Text</button>
+        </div>
+      </div>
+    </section>
 
     <!-- Contacts -->
     <section id="CONTACTS" class="centered-section">
       <h2>Contact Me</h2><br>
-
-      <div class="contact-item">
-        <img src="ig.jfif" alt="Instagram" width="20">
-        <span>Instagram: @Its_markj.jhn</span>
-      </div><br>
-
-      <div class="contact-item">
-        <img src="fb.jfif" alt="Facebook" width="20">
-        <span>Facebook: MarkJohn O. Bongcayao</span>
-      </div><br>
-
-      <div class="contact-item">
-        <img src="call.jfif" alt="Phone" width="20">
-        <span>Contact num: +639091706816</span>
-      </div><br>
-
-      <div class="contact-item">
-        <img src="Carsu.jfif" alt="Email" width="20">
-        <span>Email: markjohn.bongcayao@carsu.edu.ph</span>
+      <div id="contacts-content">
+        <div class="contact-item">
+          <img id="ig-img" src="ig.jfif" alt="Instagram" width="20">
+          <span>Instagram: @Its_markj.jhn</span>
+        </div><br>
+        <div class="contact-item">
+          <img id="fb-img" src="fb.jfif" alt="Facebook" width="20">
+          <span>Facebook: MarkJohn O. Bongcayao</span>
+        </div><br>
+        <div class="contact-item">
+          <img id="call-img" src="call.png" alt="Phone" width="20">
+          <span>Contact num: +639091706816</span>
+        </div><br>
+        <div class="contact-item">
+          <img id="email-img" src="Carsu.jfif" alt="Email" width="20">
+          <span>Email: markjohn.bongcayao@carsu.edu.ph</span>
+        </div>
       </div>
+      <button class="edit-btn" data-target="contacts-content">✏️ Edit Text</button>
     </section>
 
+    <!-- Footer -->
     <footer>
       <p>© 2025 MarkJohn O. Bongcayao. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    // Text editing toggle
+    document.querySelectorAll(".edit-btn[data-target]").forEach(button => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement.getAttribute("contenteditable") !== "true") {
+          targetElement.setAttribute("contenteditable", "true");
+          targetElement.focus();
+          button.textContent = "💾 Save Text";
+        } else {
+          targetElement.setAttribute("contenteditable", "false");
+          button.textContent = "✏️ Edit Text";
+        }
+      });
+    });
+
+    // Image change with file upload
+    document.querySelectorAll(".edit-btn[data-img]").forEach(button => {
+      button.addEventListener("click", () => {
+        const imgId = button.getAttribute("data-img");
+        const inputId = button.getAttribute("data-input");
+        const imgElement = document.getElementById(imgId);
+        const inputElement = document.getElementById(inputId);
+
+        inputElement.click();
+
+        inputElement.addEventListener("change", () => {
+          const file = inputElement.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = e => {
+              imgElement.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
