@@ -179,10 +179,3 @@ footer { background: #3b25ff; color: white; text-align: center; padding: 10px 0;
 }
 .edit-btn:hover { background: #2a1dcf; }
 .file-input { display: none; }
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .home-container, .about-container { flex-direction: column; justify-content: center; gap: 20px; text-align: center; }
-  .home-text, .about-text { text-align: center; }
-  nav ul li { margin: 10px 20px; }
-}
