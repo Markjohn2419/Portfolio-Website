@@ -3,13 +3,11 @@ document.querySelectorAll(".edit-btn[data-target]").forEach(button => {
   const targetId = button.getAttribute("data-target");
   const targetElement = document.getElementById(targetId);
 
-  // Load saved text if exists
+  // Load saved text
   const savedText = localStorage.getItem(targetId);
-  if (savedText) {
-    targetElement.innerHTML = savedText;
-  }
+  if (savedText) targetElement.innerHTML = savedText;
 
-  // Toggle edit mode
+  // Toggle edit
   button.addEventListener("click", () => {
     if (targetElement.getAttribute("contenteditable") !== "true") {
       targetElement.setAttribute("contenteditable", "true");
@@ -23,22 +21,19 @@ document.querySelectorAll(".edit-btn[data-target]").forEach(button => {
   });
 });
 
-// Image change with file upload + save to localStorage
+// Image change + save to localStorage
 document.querySelectorAll(".edit-btn[data-img]").forEach(button => {
   const imgId = button.getAttribute("data-img");
   const inputId = button.getAttribute("data-input");
   const imgElement = document.getElementById(imgId);
   const inputElement = document.getElementById(inputId);
 
-  // Load saved image if exists
+  // Load saved image
   const savedImg = localStorage.getItem(imgId);
-  if (savedImg) {
-    imgElement.src = savedImg;
-  }
+  if (savedImg) imgElement.src = savedImg;
 
   button.addEventListener("click", () => {
     inputElement.click();
-
     inputElement.onchange = () => {
       const file = inputElement.files[0];
       if (file) {
