@@ -1,13 +1,13 @@
 // =====================
-// Text editing toggle + localStorage
+// Text editing toggle + localStorage for full containers
 // =====================
 document.querySelectorAll(".edit-btn[data-target]").forEach(button => {
   const targetId = button.getAttribute("data-target");
   const targetElement = document.getElementById(targetId);
 
-  // Load saved text
-  const savedText = localStorage.getItem(targetId);
-  if (savedText) targetElement.innerHTML = savedText;
+  // Load saved content
+  const savedContent = localStorage.getItem(targetId);
+  if (savedContent) targetElement.innerHTML = savedContent;
 
   // Toggle edit
   button.addEventListener("click", () => {
@@ -15,46 +15,22 @@ document.querySelectorAll(".edit-btn[data-target]").forEach(button => {
       targetElement.setAttribute("contenteditable", "true");
       targetElement.focus();
       button.textContent = "💾 Save Text";
+      // Optional: add visual cue for editing
+      targetElement.style.outline = "2px dashed #3b25ff";
+      targetElement.style.padding = "5px";
     } else {
       targetElement.setAttribute("contenteditable", "false");
       button.textContent = "✏️ Edit Text";
       localStorage.setItem(targetId, targetElement.innerHTML);
+      // Remove visual cue
+      targetElement.style.outline = "none";
+      targetElement.style.padding = "0";
     }
   });
 });
 
 // =====================
-// Image change + localStorage
-// =====================
-document.querySelectorAll(".edit-btn[data-img]").forEach(button => {
-  const imgId = button.getAttribute("data-img");
-  const inputId = button.getAttribute("data-input");
-  const imgElement = document.getElementById(imgId);
-  const inputElement = document.getElementById(inputId);
-
-  // Load saved image
-  const savedImg = localStorage.getItem(imgId);
-  if (savedImg) imgElement.src = savedImg;
-
-  // Image upload
-  button.addEventListener("click", () => {
-    inputElement.click();
-    inputElement.onchange = () => {
-      const file = inputElement.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = e => {
-          imgElement.src = e.target.result;
-          localStorage.setItem(imgId, e.target.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    };
-  });
-});
-
-// =====================
-// Skill bar animation when About section is in view
+// Skill bar animation
 // =====================
 function animateSkills() {
   const aboutSection = document.getElementById("ABOUT");
@@ -71,6 +47,5 @@ function animateSkills() {
   }
 }
 
-// Trigger animation on scroll and page load
 window.addEventListener("scroll", animateSkills);
-window.addEventListener("load", animateSkills);
+animateSkills(); // trigger on page load
