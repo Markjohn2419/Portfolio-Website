@@ -4,150 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Website</title>
-  <style>
-    /* Hide the actual checkbox */
-    #dark-toggle { display: none; }
-
-    /* Dark mode toggle */
-    .dark-mode-toggle {
-      position: fixed;
-      top: 15px;
-      left: 20px;
-      font-size: 15px;
-      cursor: pointer;
-      z-index: 3000;
-      background: white;
-      border-radius: 50%;
-      padding: 5px 10px;
-      user-select: none;
-    }
-    .sun { display: none; }
-    #dark-toggle:checked + label .moon { display: none; }
-    #dark-toggle:checked + label .sun { display: inline; }
-
-    /* Light mode default */
-    .wrapper {
-  background: url('Back.jfif') no-repeat center center fixed;
-  background-size: cover;
-  color: #000;
-  min-height: 100vh;
-}
-
-    }
-    #dark-toggle:checked ~ .wrapper {
-      background: #111 !important;
-      color: #eee;
-    }
-    #dark-toggle:checked ~ .wrapper section {
-      background: rgba(255, 255, 255, 0.05);
-      color: #eee;
-    }
-    #dark-toggle:checked ~ .wrapper header,
-    #dark-toggle:checked ~ .wrapper footer {
-      background: #000;
-      color: #fff;
-    }
-    #dark-toggle:checked ~ .wrapper nav ul li a { color: #fff; }
-
-    /* Navigation */
-    header {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background: #3b25ff;
-      padding: 20px 0;
-      z-index: 2000;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0; padding: 0;
-      display: flex;
-      justify-content: center;
-    }
-    nav ul li { margin: 0 80px; }
-    nav ul li a {
-      color: rgb(20,20,20);
-      text-decoration: underline;
-      font-weight: bold;
-    }
-    nav ul li a:hover { color: rgb(148, 135, 19); }
-
-    section {
-      height: 100vh;
-      padding-top: 60px;
-      box-sizing: border-box;
-      border-bottom: 5px solid #2f2c4b;
-    }
-
-    /* Home layout */
-    .home-container {
-      display: flex;
-      align-items: center;
-      justify-content: left;
-      height: 100%;
-      gap: 40px;
-      padding: 20px;
-    }
-    .profile-pic, .about-pic {
-      width: 300px;
-      height: 275px;
-      border-radius: 45%;
-      object-fit: cover;
-      border: 4px solid #c22d2d;
-    }
-    .about-pic {
-      width: 200px;
-      height: 275px;
-      border: 4px solid #c70c0c;
-    }
-    .home-text { max-width: 600px; text-align: left; }
-
-    /* Centered sections */
-    .centered-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      text-align: center;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 5px 0;
-    }
-    .double-space { line-height: 2; }
-
-    /* Footer */
-    footer {
-      background: #3b25ff;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-      font-size: 14px;
-    }
-
-    #HOME, #ABOUT, #CONTACTS { background: rgba(255, 255, 255, 0.7); }
-
-    .edit-btn {
-      margin-top: 5px;
-      padding: 5px 5px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      background: #3b25ff;
-      color: white;
-      font-weight: bold;
-    }
-    .file-input {
-      display: none;
-    }
-  </style>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <!-- Dark mode switch -->
   <input type="checkbox" id="dark-toggle">
@@ -172,7 +32,7 @@
     <section id="HOME">
       <div class="home-container">
         <div>
-          <img id="home-img" src="mark.jfif" alt="Profile Picture" class="profile-pic">
+          <img id="home-img" src="image/mark.jfif" alt="Profile Picture" class="profile-pic">
           <input type="file" id="home-img-input" class="file-input" accept="image/*">
           <button class="edit-btn" data-img="home-img" data-input="home-img-input">🖼️ Change Image</button>
         </div>
@@ -189,7 +49,7 @@
     <section id="ABOUT" class="centered-section">
       <div class="about-container">
         <div>
-          <img id="about-img" src="john.jfif" alt="About Me Picture" class="about-pic">
+          <img id="about-img" src="image/john.jfif" alt="About Me Picture" class="about-pic">
           <input type="file" id="about-img-input" class="file-input" accept="image/*">
           <button class="edit-btn" data-img="about-img" data-input="about-img-input">🖼️ Change Image</button>
         </div>
@@ -214,19 +74,19 @@
       <h2>Contact Me</h2><br>
       <div id="contacts-content">
         <div class="contact-item">
-          <img id="ig-img" src="ig.jfif" alt="Instagram" width="20">
+          <img id="ig-img" src="image/ig.jfif" alt="Instagram" width="20">
           <span>Instagram: @Its_markj.jhn</span>
         </div><br>
         <div class="contact-item">
-          <img id="fb-img" src="fb.jfif" alt="Facebook" width="20">
+          <img id="fb-img" src="image/fb.jfif" alt="Facebook" width="20">
           <span>Facebook: MarkJohn O. Bongcayao</span>
         </div><br>
         <div class="contact-item">
-          <img id="call-img" src="call.png" alt="Phone" width="20">
+          <img id="call-img" src="image/call.png" alt="Phone" width="20">
           <span>Contact num: +639091706816</span>
         </div><br>
         <div class="contact-item">
-          <img id="email-img" src="Carsu.jfif" alt="Email" width="20">
+          <img id="email-img" src="image/Carsu.jfif" alt="Email" width="20">
           <span>Email: markjohn.bongcayao@carsu.edu.ph</span>
         </div>
       </div>
@@ -239,46 +99,6 @@
     </footer>
   </div>
 
-  <script>
-    // Text editing toggle
-    document.querySelectorAll(".edit-btn[data-target]").forEach(button => {
-      button.addEventListener("click", () => {
-        const targetId = button.getAttribute("data-target");
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement.getAttribute("contenteditable") !== "true") {
-          targetElement.setAttribute("contenteditable", "true");
-          targetElement.focus();
-          button.textContent = "💾 Save Text";
-        } else {
-          targetElement.setAttribute("contenteditable", "false");
-          button.textContent = "✏️ Edit Text";
-        }
-      });
-    });
-
-    // Image change with file upload
-    document.querySelectorAll(".edit-btn[data-img]").forEach(button => {
-      button.addEventListener("click", () => {
-        const imgId = button.getAttribute("data-img");
-        const inputId = button.getAttribute("data-input");
-        const imgElement = document.getElementById(imgId);
-        const inputElement = document.getElementById(inputId);
-
-        inputElement.click();
-
-        inputElement.addEventListener("change", () => {
-          const file = inputElement.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = e => {
-              imgElement.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-          }
-        });
-      });
-    });
-  </script>
+  <script src="script.js"></script> <!-- External JS -->
 </body>
 </html>

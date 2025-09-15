@@ -1,0 +1,139 @@
+/* Hide the actual checkbox */
+#dark-toggle { display: none; }
+
+/* Dark mode toggle */
+.dark-mode-toggle {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 3000;
+  background: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  user-select: none;
+}
+.sun { display: none; }
+#dark-toggle:checked + label .moon { display: none; }
+#dark-toggle:checked + label .sun { display: inline; }
+
+/* Light mode default */
+.wrapper {
+  background: url('Back.jfif') no-repeat center center fixed;
+  background-size: cover;
+  color: #000;
+  min-height: 100vh;
+}
+#dark-toggle:checked ~ .wrapper {
+  background: #111 !important;
+  color: #eee;
+}
+#dark-toggle:checked ~ .wrapper section {
+  background: rgba(255, 255, 255, 0.05);
+  color: #eee;
+}
+#dark-toggle:checked ~ .wrapper header,
+#dark-toggle:checked ~ .wrapper footer {
+  background: #000;
+  color: #fff;
+}
+#dark-toggle:checked ~ .wrapper nav ul li a { color: #fff; }
+
+/* Navigation */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: #3b25ff;
+  padding: 20px 0;
+  z-index: 2000;
+}
+nav ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex;
+  justify-content: center;
+}
+nav ul li { margin: 0 80px; }
+nav ul li a {
+  color: rgb(20,20,20);
+  text-decoration: underline;
+  font-weight: bold;
+}
+nav ul li a:hover { color: rgb(148, 135, 19); }
+
+section {
+  height: 100vh;
+  padding-top: 60px;
+  box-sizing: border-box;
+  border-bottom: 5px solid #2f2c4b;
+}
+
+/* Home layout */
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 100%;
+  gap: 40px;
+  padding: 20px;
+}
+.profile-pic, .about-pic {
+  width: 300px;
+  height: 275px;
+  border-radius: 45%;
+  object-fit: cover;
+  border: 4px solid #c22d2d;
+}
+.about-pic {
+  width: 200px;
+  height: 275px;
+  border: 4px solid #c70c0c;
+}
+.home-text { max-width: 600px; text-align: left; }
+
+/* Centered sections */
+.centered-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+.double-space { line-height: 2; }
+
+/* Footer */
+footer {
+  background: #3b25ff;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+#HOME, #ABOUT, #CONTACTS { background: rgba(255, 255, 255, 0.7); }
+
+.edit-btn {
+  margin-top: 5px;
+  padding: 5px 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: #3b25ff;
+  color: white;
+  font-weight: bold;
+}
+.file-input {
+  display: none;
+}
