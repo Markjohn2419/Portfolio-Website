@@ -1,4 +1,6 @@
-// Text editing toggle + save to localStorage
+// =====================
+// Text editing toggle + localStorage
+// =====================
 document.querySelectorAll(".edit-btn[data-target]").forEach(button => {
   const targetId = button.getAttribute("data-target");
   const targetElement = document.getElementById(targetId);
@@ -21,7 +23,9 @@ document.querySelectorAll(".edit-btn[data-target]").forEach(button => {
   });
 });
 
-// Image change + save to localStorage
+// =====================
+// Image change + localStorage
+// =====================
 document.querySelectorAll(".edit-btn[data-img]").forEach(button => {
   const imgId = button.getAttribute("data-img");
   const inputId = button.getAttribute("data-input");
@@ -32,6 +36,7 @@ document.querySelectorAll(".edit-btn[data-img]").forEach(button => {
   const savedImg = localStorage.getItem(imgId);
   if (savedImg) imgElement.src = savedImg;
 
+  // Image upload
   button.addEventListener("click", () => {
     inputElement.click();
     inputElement.onchange = () => {
@@ -40,10 +45,32 @@ document.querySelectorAll(".edit-btn[data-img]").forEach(button => {
         const reader = new FileReader();
         reader.onload = e => {
           imgElement.src = e.target.result;
-          localStorage.setItem(imgId, e.target.result); // Save base64 image
+          localStorage.setItem(imgId, e.target.result);
         };
         reader.readAsDataURL(file);
       }
     };
   });
 });
+
+// =====================
+// Skill bar animation when About section is in view
+// =====================
+function animateSkills() {
+  const aboutSection = document.getElementById("ABOUT");
+  const skills = document.querySelectorAll(".skill-level");
+  const sectionPos = aboutSection.getBoundingClientRect().top;
+  const screenPos = window.innerHeight;
+
+  if (sectionPos < screenPos - 100) {
+    skills.forEach(skill => {
+      const level = skill.getAttribute("data-level");
+      skill.style.width = level;
+    });
+    window.removeEventListener("scroll", animateSkills);
+  }
+}
+
+// Trigger animation on scroll and page load
+window.addEventListener("scroll", animateSkills);
+window.addEventListener("load", animateSkills);

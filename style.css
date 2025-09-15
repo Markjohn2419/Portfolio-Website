@@ -21,9 +21,7 @@
 .wrapper {
   background: url('image/Back.jfif') no-repeat center center fixed;
   background-size: cover;
-  background-attachment: fixed;
   color: #000;
-  min-height: 100vh;
   transition: background 0.5s, color 0.5s;
 }
 #dark-toggle:checked ~ .wrapper {
@@ -67,8 +65,8 @@ nav ul li a:hover { color: rgb(148, 135, 19); }
 
 /* Sections */
 section {
-  height: 100vh;
-  padding-top: 60px;
+  min-height: 100px;
+  padding: 100px 20px 50px; /* top padding for header offset */
   box-sizing: border-box;
   border-bottom: 5px solid #2f2c4b;
   transition: background 0.5s, color 0.5s;
@@ -78,22 +76,41 @@ section {
 /* Home Layout */
 .home-container {
   display: flex;
-  align-items: center;          /* vertically center items */
-  justify-content: flex-start;  /* keep image left */
+  align-items: center;          
+  justify-content: flex-start;  
   gap: 40px;
   padding: 20px;
   flex-wrap: wrap;
+}
+.home-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  max-width: 600px;
 }
 
 /* About Layout */
 .about-container {
   display: flex;
   align-items: center;
-  justify-content: center;      /* center image and text */
-  gap: 40px;
+  justify-content: center;      
+  gap: 20px;
   padding: 20px;
   flex-wrap: wrap;
   text-align: center;
+  flex-direction: column;
+}
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Profile & About Pics */
@@ -102,12 +119,46 @@ section {
   object-fit: cover;
   border: 4px solid #c22d2d;
   transition: border 0.3s;
+  max-width: 350px;
 }
 .about-pic { border: 4px solid #c70c0c; max-width: 200px; }
-.home-text { max-width: 600px; text-align: left; }
+
+/* Skills Chart */
+.skills {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.skill span {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.skill-bar {
+  background: #ddd;
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.skill-level {
+  height: 100%;
+  background: #3b25ff;
+  width: 0;
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+}
 
 /* Centered Sections */
-.centered-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.centered-section { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; }
 .contact-item { display: flex; align-items: center; gap: 10px; margin: 5px 0; }
 .double-space { line-height: 2; }
 

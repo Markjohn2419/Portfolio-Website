@@ -30,15 +30,15 @@
     <section id="HOME">
       <div class="home-container">
         <div>
-          <img id="home-img" src="image/mark.jfif" width="370px" height="350px" alt="Profile Picture" class="profile-pic">
+          <img id="home-img" src="image/mark.jfif" width="500px" height="350px" alt="Profile Picture" class="profile-pic">
           <input type="file" id="home-img-input" class="file-input" accept="image/*">
-          <button class="edit-btn" data-img="home-img" data-input="home-img-input">🖼️ Change Image</button>
+          <button class="edit-btn" data-img="home-img" data-input="home-img-input">Change Image</button>
         </div>
         <div class="home-text">
           <h6 id="home-title">Welcome to My Portfolio</h6>
           <h1 id="home-heading"><b><u>Hi, I'm Mark - a 3rd year student at Caraga State University.</u></b></h1>
           <p id="home-desc">I am currently taking bachelor in science in computer science, and dreaming that someday I become a professional in cyber security.</p>
-          <button class="edit-btn" data-target="home-desc">✏️ Edit Text</button>
+          <button class="edit-btn" data-target="home-desc"> Edit</button>
         </div>
       </div>
     </section>
@@ -47,9 +47,9 @@
     <section id="ABOUT" class="centered-section">
       <div class="about-container">
         <div>
-          <img id="about-img" src="image/john.jfif" alt="About Me Picture" class="about-pic">
+          <img id="about-img" src="image/john.jfif"  width="350px" height="200px" alt="About Me Picture" class="about-pic">
           <input type="file" id="about-img-input" class="file-input" accept="image/*">
-          <button class="edit-btn" data-img="about-img" data-input="about-img-input">🖼️ Change Image</button>
+          <button class="edit-btn" data-img="about-img" data-input="about-img-input"> Change Image</button>
         </div>
         <div class="about-text">
           <h2>About Me</h2>
@@ -62,33 +62,62 @@
             creativity in problem-solving. My ultimate goal is to become a professional cybersecurity 
             expert, dedicated to creating a safer digital world.
           </p>
-          <button class="edit-btn" data-target="about-content">✏️ Edit Text</button>
+          <button class="edit-btn" data-target="about-content"> Edit Text</button>
+
+          <!-- Skills Chart -->
+          <h3>My Skills</h3>
+          <div class="skills">
+            <div class="skill">
+              <span>Critical Thinking</span>
+              <div class="skill-bar">
+                <div class="skill-level" data-level="90%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <span>Deep Analysis</span>
+              <div class="skill-bar">
+                <div class="skill-level" data-level="85%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <span>Problem Solving</span>
+              <div class="skill-bar">
+                <div class="skill-level" data-level="80%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <span>Cybersecurity Awareness</span>
+              <div class="skill-bar">
+                <div class="skill-level" data-level="75%"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Contacts Section -->
     <section id="CONTACTS" class="centered-section">
-      <h2>Contact Me</h2>
+      <h2>Contact Me</h2><br>
       <div id="contacts-content">
         <div class="contact-item">
           <img id="ig-img" src="image/ig.jfif" alt="Instagram" width="20">
-          <span>Instagram: @Its_markj.jhn</span>
+          <span>Instagram: @Its_markj.jhn</span><br>
         </div>
         <div class="contact-item">
           <img id="fb-img" src="image/fb.jfif" alt="Facebook" width="20">
-          <span>Facebook: MarkJohn O. Bongcayao</span>
+          <span>Facebook: MarkJohn O. Bongcayao</span><br>
         </div>
         <div class="contact-item">
           <img id="call-img" src="image/call.png" alt="Phone" width="20">
-          <span>Contact num: +639091706816</span>
+          <span>Contact num: +639091706816</span><br>
         </div>
         <div class="contact-item">
           <img id="email-img" src="image/Carsu.jfif" alt="Email" width="20">
           <span>Email: markjohn.bongcayao@carsu.edu.ph</span>
         </div>
       </div>
-      <button class="edit-btn" data-target="contacts-content">✏️ Edit Text</button>
+      <button class="edit-btn" data-target="contacts-content"> Edit Text</button>
     </section>
 
     <!-- Footer -->
